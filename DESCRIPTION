@@ -1,0 +1,13 @@
+Package: BayesianScreening
+Type: Package
+Title: Perform Bayesian Screening with Gene Dependence
+Version: 1.2
+Date: 2015-01-10
+Author: Eric F. Lock
+Maintainer: Eric F. Lock <elock@umn.edu>
+Description: Includes functions to compute posteriors from a gene-level hierarchical prior, as described in the manuscript "Bayesian genome- and epigenome-wide association studies with gene level dependence."  Also includes functions to perform two-class testing with shared kernels for methylation array data.  The file BinaryExample.r gives example code for simulated categorical data. The file GliomaMethylExample.r gives example code for an application to methylation screening data. 
+License: GPL-3
+Imports: msm, gtools, gplots, graphics, stats
+Suggests: knitr, rmarkdown
+Depends: R(>= 2.10.0)
+VignetteBuilder: knitr

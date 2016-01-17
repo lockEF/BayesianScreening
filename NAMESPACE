@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+import("gtools","msm","gplots")
+importFrom("graphics", "barplot", "image", "layout", "layout.show",
+             "legend", "par", "plot", "plot.new", "text")
+importFrom("stats", "dist", "hclust", "quantile", "sd")
