@@ -9,6 +9,6 @@ library(devtools)
 install_github("lockEF/BayesianScreening")
 ```
 
-[1] Lock, E. F. & Dunson, D. B. (2016). Bayesian genome- and epigenome-wide association studies with gene level dependence. Preprint.
+[1] Lock, E. F. & Dunson, D. B. (2016). Bayesian genome- and epigenome-wide association studies with gene level dependence. arXiv preprint: http://arxiv.org/abs/1604.08654 .
 
 [2] Lock, E. F. & Dunson, D. B. (2015). Shared kernel Bayesian screening. Biometrika, 102 (4): 829-842.
