@@ -1,6 +1,7 @@
-MultiScale.DP.binom = function(n,n0,n1,UniqGene,Gene,Concentration=c(1,1),alpha=1,K=10,NumDraws=2000){
+MultiScale.DP.binom = function(n,n0,n1,UniqGene,Gene,Concentration=rep(1,dim(n)[2]),alpha=1,K=10,NumDraws=2000){
 N = rep(0,K)
 Probs = matrix(nrow = length(UniqGene), ncol = K)
+D = dim(n)[2]
 C = rep(1,length(UniqGene))
 V = rep(0,K)
 Pi = rep(0,K)
@@ -12,9 +13,9 @@ posts = matrix(ncol = NumDraws,nrow = length(Gene))
 post = rep(0.5,length(Gene))
 Realize = rbinom(length(Gene),1,post)
 pA = rep(0,length(UniqGene))
-Gamma=matrix(nrow=length(Gene),ncol = 2)
-Gamma0=matrix(nrow=length(Gene),ncol = 2)
-Gamma1=matrix(nrow=length(Gene),ncol = 2)
+Gamma=matrix(nrow=length(Gene),ncol = D)
+Gamma0=matrix(nrow=length(Gene),ncol = D)
+Gamma1=matrix(nrow=length(Gene),ncol = D)
 pzA.marg = rep(0,length(Gene))
 pzNotA.marg = rep(0,length(Gene))
 pAvec = rep(0,length(Gene))
