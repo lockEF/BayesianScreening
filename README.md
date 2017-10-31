@@ -4,7 +4,7 @@ This is an R package to compute posteriors from a gene-level hierarchical prior,
 
 The package can be installed in R, directly from GitHub, using the devtools library:
 ```
-install.packages(devtools)
+install.packages('devtools')
 library(devtools)
 install_github("lockEF/BayesianScreening")
 ```
