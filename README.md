@@ -9,6 +9,10 @@ library(devtools)
 install_github("lockEF/BayesianScreening")
 ```
 
+The functions in the R script SNLPMasterFile.R can be used to perform genome-wide association studies with a gene-level prior, additional marker-level covariates, and a non-local alternative, as described in [3].  This code was developed by Adam Kaplan.  See SimulatedDataExample.R for example usage.  
+
 [1] Lock, E. F. & Dunson, D. B. (2017). Bayesian genome- and epigenome-wide association studies with gene level dependence. Biometrics, 73 (3): 1018-1028. https://www.ncbi.nlm.nih.gov/pubmed/28083869
 
 [2] Lock, E. F. & Dunson, D. B. (2015). Shared kernel Bayesian screening. Biometrika, 102 (4): 829-842.  https://www.ncbi.nlm.nih.gov/pubmed/27046939
+
+[3] Kaplan, A.,  Fiecas, M., & Lock, E.F. (2019).  Bayesian GWAS with Structured and Non-Local Priors. Preprint.   
