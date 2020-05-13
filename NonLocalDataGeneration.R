@@ -37,8 +37,12 @@ DataGenNonLoc.Spec <- function(q, NumGene, indiv, Cats, Cont, N.Control, N.Case,
     cat.probs <- rbeta(Cats, 1,1)
     cat.probs <- cat.probs/sum(cat.probs)
     cats <- sample(1:Cats, size = length(Gene), prob = cat.probs, replace = TRUE)
-    cats <- model.matrix(~factor(cats)-1)
+    #cats <- model.matrix(~factor(cats)-1) <- changed on May 13th 2020
+    cats <- model.matrix(~factor(cats))
+    cats <- cats[,-1]
   }else{cats = NULL}
+  # the original code that is commented out did not produce a matrix of dummy variables for 
+  # SNP level categories without an intercept term 
   #now simulate something continuous#
   
   if (Cont >= 1){
@@ -103,8 +107,11 @@ DataGenNonLoc.Spec <- function(q, NumGene, indiv, Cats, Cont, N.Control, N.Case,
       num0 = rbinom(1,N0,p0) #with probability p0, simulate # of controls with minor allele
       num1 = rbinom(1,N1,p1)} #with probability p1, simulate # of cases with minor allele
     Indicators[i] = Indicator
-    mats[[i]] = matrix(nrow=2,ncol=2,c(num0,N0-num0,num1,N1-num1))
+    mats[[i]] = matrix(nrow=2,ncol=2,c(N0-num0,num0,N1-num1,num1)) # <- changed
+    #mats[[i]] = matrix(nrow=2,ncol=2,c(num0,N0-num0,num1,N1-num1)) <- original
   }
+  # swapped the columns to match the input of the model, date: May 13th 2020
+  # Thanks to Y. Guo for catching this. 
   n=matrix(nrow=length(Gene),ncol = 2)
   n0=matrix(nrow=length(Gene),ncol = 2)
   n1=matrix(nrow=length(Gene),ncol = 2)
