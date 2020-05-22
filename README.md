@@ -15,4 +15,4 @@ The functions in the R script SNLPMasterFile.R can be used to perform genome-wid
 
 [2] Lock, E. F. & Dunson, D. B. (2015). Shared kernel Bayesian screening. Biometrika, 102 (4): 829-842.  https://www.ncbi.nlm.nih.gov/pubmed/27046939
 
-[3] Kaplan, A.,  Fiecas, M., & Lock, E.F. (2019).  Bayesian GWAS with Structured and Non-Local Priors. Preprint.   
+[3] Adam Kaplan, Eric F. Lock, Mark Fiecas, "Bayesian GWAS with Structured and Non-Local Priors," Bioinformatics, 2019. 
