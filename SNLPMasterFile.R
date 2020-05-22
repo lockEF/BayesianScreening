@@ -291,7 +291,7 @@ AtomAssign <- function(samp, H, NumGene, indc, Zcolit, X.Dat, betavecit, colfx, 
   
   for (i in 1:H){
     if (clusterfreq1[i] != 0){
-      mean.s.i <- (1 + sum(Zcolit[(which(clustMark1 == i))] - X.Dat[(which(clustMark1 == i)),]%*%betavecit[1:colfx]))/(1 + clusterfreq1[i])
+      mean.s.i <- (sum(Zcolit[(which(clustMark1 == i))] - X.Dat[(which(clustMark1 == i)),]%*%betavecit[1:colfx]))/(1 + clusterfreq1[i])
       var.s.i <- 1/(1 + clusterfreq1[i])
       theta.h[i] <- rnorm(1, mean =  mean.s.i, sd = sqrt(var.s.i))}else{theta.h[i] <- rnorm(1, 0, 1)}
     betavecit[(which(indc ==i) + colfx)] <- theta.h[i]
@@ -314,7 +314,7 @@ AtomAssign0 <- function(samp, H, NumGene, indc, Zcolit, MarkerIndicesList){
   
   for (i in 1:H){
     if (clusterfreq1[i] != 0){
-      mean.s.i <- (1 + sum(Zcolit[(which(clustMark1 == i))]))/(1 + clusterfreq1[i])
+      mean.s.i <- (sum(Zcolit[(which(clustMark1 == i))]))/(1 + clusterfreq1[i])
       var.s.i <- 1/(1 + clusterfreq1[i])
       theta.h[i] <- rnorm(1, mean =  mean.s.i, sd = sqrt(var.s.i))}else{theta.h[i] <- rnorm(1, 0, 1)}
     betavecit[which(indc ==i)] <- theta.h[i]
@@ -323,6 +323,9 @@ AtomAssign0 <- function(samp, H, NumGene, indc, Zcolit, MarkerIndicesList){
   return(list(betavecit, theta.h))
 }
 
+# Edited on May 22nd 2020; Dirichlet process Atom posterior mean was incorrect, 
+# erased the "1+" in the numerator of the mean for both AtomUpdate functions. 
+                        
 #Latent variable Z update 
 #Input: 
 #Zcolit: last iterations sample vector of Z's
